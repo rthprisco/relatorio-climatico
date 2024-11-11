@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Climático</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Relatório Climático</h1>
+        <!-- <button onclick="savePDF()">Salvar</button> -->
+    </header>
+    <main>
+
+        <section class="test">
+            <div class="form">
+                <div class="input">
+                    <span>Estado:</span>
+                    <select name="" id="select-uf" onchange="loadCities()">
+                        <option value="" disabled selected id="placeholder">Selecione seu estado...</option>
+                    </select>
+                </div>
+                <div class="input">
+                    <span>Cidade:</span>
+                    <select name="" id="select-city" onchange="getClimateData()">
+                        <option value="" disabled selected id="placeholder">Selecione sua cidade...</option>
+                    </select>
+                </div>
+                <div class="input">
+                    <span>Período de coleta:</span>
+                    <input type="text" id="select-date" disabled sele>
+                </div>
+            </div>
+            <div class="air">
+                <h2>Qualidade do Ar</h2>
+                <div class="quality">Bom</div>
+                <div class="indicators">
+                    <span>
+                        CO:&nbsp;<p id="co"></p>
+                    </span>
+                    <span>
+                        NO<sub>2</sub>:&nbsp;<p id="no2"></p>
+                    </span>
+                    <span>
+                        O<sub>3</sub>:&nbsp;<p id="o3"></p>
+                    </span>
+                    <span>
+                        PM<sub>2</sub>.5:&nbsp;<p id="pm2_5"></p>
+                    </span>
+                    <span>
+                        PM<sub>10</sub>:&nbsp;<p id="pm10"></p>
+                    </span>
+                    <span>
+                        SO<sub>2</sub>:&nbsp;<p id="so2"></p>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+ 
+        <div class="content">
+            <hr>
+            <p id="p-info"></p>
+            <hr>
+            
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>Horário</th>
+                        <th>Condição</th>
+                        <th>Chuva (%)</th>
+                        <th>Temperatura (°C)</th>
+                        <th>Sensação (°C)</th>
+                        <th>Umidade (%)</th>
+                        <th>Vento (km/h)</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
